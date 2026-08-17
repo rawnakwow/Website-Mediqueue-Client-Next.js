@@ -1,9 +1,7 @@
 import { authClient } from "@/lib/auth-client";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api";
-
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 let tokenRequest = null;
-
 function readCachedToken() {
   if (typeof window === "undefined") return null;
   const token = localStorage.getItem("mediqueue-jwt");
