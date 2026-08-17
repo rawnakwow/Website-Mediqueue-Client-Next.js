@@ -9,7 +9,7 @@ const client = globalForMongo.mediqueueMongoClient || new MongoClient(
 );
 if (process.env.NODE_ENV !== "production") globalForMongo.mediqueueMongoClient = client;
 
-const appURL = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const appURL = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 const databaseName = process.env.DB_NAME || "mediqueue";
 
 const socialProviders = process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
