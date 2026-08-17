@@ -32,16 +32,18 @@ export const auth = betterAuth({
   socialProviders,
   session: { cookieCache: { enabled: true, maxAge: 5 * 60, strategy: "jwt" } },
   plugins: [
-    jwt({
-      jwt: {
-        expirationTime: "1h",
-        definePayload: ({ user }) => ({
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          image: user.image || null,
-        }),
-      },
-    }),
-  ],
+  jwt({
+    jwt: {
+      issuer: appURL,
+      audience: appURL,
+      expirationTime: "1h",
+      definePayload: ({ user }) => ({
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        image: user.image || null,
+      }),
+    },
+  }),
+],
 });
